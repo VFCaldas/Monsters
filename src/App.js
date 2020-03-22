@@ -19,6 +19,9 @@ this.state = {
      monsters: users
    }));
  }
+ handleChange =(e) =>{
+   this.setState({searchField: e.target.value})
+ }
 
   render(){
     const { monsters,searchField} = this.state;
@@ -29,11 +32,10 @@ this.state = {
 
     return(
       <div className="App">
+        <h1> Monsters </h1>
         <SearchBox 
          placeholder='Search a Monster'
-         handleChange = {e => {this.setState({searchField: e.target.value});
-        }}
-        />
+         handleChange = {this.handleChange}/>
         <CardList monsters={filteredMonsters}>
         </CardList>
       
